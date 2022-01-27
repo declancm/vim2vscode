@@ -14,7 +14,7 @@ command! Code :call <SID>OpenAllBuffersInCode()
 nnoremap <Plug>vim2vscodeCurrent :call <SID>OpenCurrentBufferInCode()<CR>
 nnoremap <Plug>vim2vscodeAll :call <SID>OpenAllBuffersInCode()<CR>
 
-if exists("g:loaded_vim2vscode") && g:loaded_vim2vscode != 1
+if g:loaded_vim2vscode != 1
     nmap <silent> <leader>occ <Plug>vim2vscodeCurrent
     nmap <silent> <leader>oc <Plug>vim2vscodeAll
 endif
