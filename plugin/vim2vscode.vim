@@ -19,6 +19,10 @@ if g:loaded_vim2vscode != 1
     nmap <silent> <leader>oc <Plug>vim2vscodeAll
 endif
 
+if !exists(g:vim2vscode_no_defaults)
+    let g:loaded_vim2vscode = 0
+endif
+
 function! s:OpenCurrentBufferInCode()
 
     " get name of current buffer
