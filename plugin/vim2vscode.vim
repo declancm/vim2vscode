@@ -2,11 +2,6 @@
 " Maintainer: Declan Mullen https://github.com/declancm
 " Version: 1.0
 
-if exists('g:loaded_vim2vscode')
-  finish
-endif
-let g:loaded_vim2vscode = 1
-
 command! CodeCurrent :call <SID>OpenCurrentBufferInCode()
 command! Code :call <SID>OpenAllBuffersInCode()
 
