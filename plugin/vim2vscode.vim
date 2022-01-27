@@ -1,6 +1,10 @@
-command! Code :call OpenBuffersInCode()
+command! Code :call <SID>OpenBuffersInCode()
 
-function! OpenInCode()
+if !exists
+    nnoremap <unique> <silent> <expr> <leader>oc :call <SID>OpenBuffersInCode()<CR>
+endif
+
+function! s:OpenInCode()
 
     " get name of current buffer
     let l:file = bufname()
@@ -14,7 +18,7 @@ function! OpenInCode()
 
 endfunction
 
-function! OpenBuffersInCode()
+function! s:OpenBuffersInCode()
 
     " get name of current buffer
     let l:currentFile = bufname()
