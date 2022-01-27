@@ -21,6 +21,9 @@ endif
 if g:vim2vscode_no_defaults != 1
     nmap <silent> <leader>occ <Plug>vim2vscodeCurrent
     nmap <silent> <leader>oc <Plug>vim2vscodeAll
+else
+    nunmap <leader>occ
+    nunmap <leader>oc
 endif
 
 function! s:OpenCurrentBufferInCode()
