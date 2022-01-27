@@ -14,7 +14,7 @@ command! Code :call <SID>OpenAllBuffersInCode()
 nnoremap <Plug>vim2vscodeCurrent :call <SID>OpenCurrentBufferInCode()<CR>
 nnoremap <Plug>vim2vscodeAll :call <SID>OpenAllBuffersInCode()<CR>
 
-if !exists(g:vim2vscode_no_defaults)
+if !exists("g:vim2vscode_no_defaults")
     let g:vim2vscode_no_defaults = 0
 endif
 
