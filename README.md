@@ -1,7 +1,7 @@
 # vim2vscode
 
 Open all active buffers (files) in vs code for when you need that visual studio\
-debugging power. Opens the current file at the exact same cursor position.
+debugging power.
 
 ## Installation
 
@@ -22,12 +22,35 @@ use 'declancm/vim2vscode'
 ## Usage
 
 Enter the command `:Code` to open all buffers (files) open on the screen in\
-code. The current file will be opened in code at the exact same cursor position.
+code. The current file will be opened in code at the same cursor position.
 
-### Default Mapping
+Enter the command `:CodeCurrent` to open the current buffer in code. The file\
+will be opened in code at the same cursor position.
 
-- `<leader>oc` is the same as using the `:Code` command. It opens all buffers\
-  open on the screen in code. The current file will be opened in vscode at the\
-  exact same cursor position.
-- `<leader>occ` opens the current buffer in code. The file will be opened at the\
-  same cursor position as in vim.
+### Default Mappings
+
+- `<leader>oc` "Open in Code"\
+  Equivalent to using the `:Code` command.
+- `<leader>occ` "Open Current file in Code"\
+  Equivalent to using the `:CodeC` command.
+
+### Custom Mappings
+
+First disable the default mappings:
+
+```vim
+let g:vim2vscode_no_defaults = 1
+```
+
+- Open all active buffers in vscode:
+
+  ```vim
+  <leader>oc :Code<CR>
+  ```
+
+- Open current buffer in vscode:
+
+  ```vim
+  <leader>occ :CodeCurrent<CR>
+  ```
+

@@ -2,16 +2,24 @@
 " Maintainer: Declan Mullen https://github.com/declancm
 " Version: 1.0
 
-command! Code :call <SID>OpenBuffersInCode()
+if exists('g:loaded_vim2vscode')
+  finish
+endif
+let g:loaded_vim2vscode = 1
 
-" make it so if a variable g:vim2vscode_defaults then these defaults aren't set.
-nnoremap <Plug>vim2vscodeCurrent :call <SID>OpenInCode()<CR>
-nnoremap <Plug>vim2vscodeAll :call <SID>OpenBuffersInCode()<CR>
+command! CodeCurrent :call <SID>OpenCurrentBufferInCode()
+command! Code :call <SID>OpenAllBuffersInCode()
 
-nmap <silent> <leader>occ <Plug>vim2vscodeCurrent
-nmap <silent> <leader>oc <Plug>vim2vscodeAll
+" make it so if a variable g:vim2vscode_no_defaults then these defaults aren't set.
+nnoremap <Plug>vim2vscodeCurrent :call <SID>OpenCurrentBufferInCode()<CR>
+nnoremap <Plug>vim2vscodeAll :call <SID>OpenAllBuffersInCode()<CR>
 
-function! s:OpenInCode()
+if exists("g:loaded_vim2vscode") && g:loaded_vim2vscode != 1
+    nmap <silent> <leader>occ <Plug>vim2vscodeCurrent
+    nmap <silent> <leader>oc <Plug>vim2vscodeAll
+endif
+
+function! s:OpenCurrentBufferInCode()
 
     " get name of current buffer
     let l:file = bufname()
@@ -25,7 +33,7 @@ function! s:OpenInCode()
 
 endfunction
 
-function! s:OpenBuffersInCode()
+function! s:OpenAllBuffersInCode()
 
     " get name of current buffer
     let l:currentFile = bufname()
