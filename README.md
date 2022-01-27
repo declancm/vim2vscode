@@ -32,7 +32,7 @@ will be opened in code at the same cursor position.
 - `<leader>oc` "Open in Code"\
   Equivalent to using the `:Code` command.
 - `<leader>occ` "Open Current file in Code"\
-  Equivalent to using the `:CodeC` command.
+  Equivalent to using the `:CodeCurrent` command.
 
 ### Custom Mappings
 
@@ -42,13 +42,15 @@ First disable the default mappings:
 let g:vim2vscode_no_defaults = 1
 ```
 
-- Open all active buffers in code:
+Then add your keymaps.
+
+- To open all active buffers in code:
 
   ```vim
   nnoremap <leader>oc :Code<CR>
   ```
 
-- Open current buffer in code:
+- To open the current buffer in code:
 
   ```vim
   nnoremap <leader>occ :CodeCurrent<CR>
