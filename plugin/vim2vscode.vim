@@ -1,3 +1,7 @@
+" vim2vscode - Open files in vscode
+" Maintainer: Declan Mullen https://github.com/declancm
+" Version: 1.0
+
 command! Code :call <SID>OpenBuffersInCode()
 
 " make it so if a variable g:vim2vscode_defaults then these defaults aren't set.
