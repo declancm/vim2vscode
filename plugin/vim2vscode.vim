@@ -18,7 +18,7 @@ if !exists(g:vim2vscode_no_defaults)
     let g:loaded_vim2vscode = 0
 endif
 
-if g:loaded_vim2vscode != 1
+if g:vim2vscode_no_defaults != 1
     nmap <silent> <leader>occ <Plug>vim2vscodeCurrent
     nmap <silent> <leader>oc <Plug>vim2vscodeAll
 endif
