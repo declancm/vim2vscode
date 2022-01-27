@@ -1,8 +1,10 @@
 command! Code :call <SID>OpenBuffersInCode()
 
-if !exists
-    nnoremap <unique> <silent> <expr> <leader>oc :call <SID>OpenBuffersInCode()<CR>
-endif
+nnoremap <silent> <Plug>OpenCurrentBuffer :call <SID>OpenInCode()<CR>
+nnoremap <silent> <Plug>OpenAllBuffers :call <SID>OpenBuffersInCode()<CR>
+
+nmap <leader>occ <Plug>OpenCurrentBuffer
+nmap <leader>oc <Plug>OpenAllBuffers
 
 function! s:OpenInCode()
 
