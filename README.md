@@ -1,6 +1,6 @@
 # vim2vscode
 
-Open all active buffers (files) in vs code for when you need that visual studio\
+Open all active buffers (files) in vim into vs code for when you need that visual studio\
 debugging power. Opens the current file at the exact same cursor position.
 
 ## Installation
