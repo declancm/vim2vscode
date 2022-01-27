@@ -45,12 +45,12 @@ let g:vim2vscode_no_defaults = 1
 - Open all active buffers in vscode:
 
   ```vim
-  <leader>oc :Code<CR>
+  nnoremap <leader>oc :Code<CR>
   ```
 
 - Open current buffer in vscode:
 
   ```vim
-  <leader>occ :CodeCurrent<CR>
+  nnoremap <leader>occ :CodeCurrent<CR>
   ```
 
