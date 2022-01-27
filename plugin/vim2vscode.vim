@@ -14,13 +14,13 @@ command! Code :call <SID>OpenAllBuffersInCode()
 nnoremap <Plug>vim2vscodeCurrent :call <SID>OpenCurrentBufferInCode()<CR>
 nnoremap <Plug>vim2vscodeAll :call <SID>OpenAllBuffersInCode()<CR>
 
+if !exists(g:vim2vscode_no_defaults)
+    let g:loaded_vim2vscode = 0
+endif
+
 if g:loaded_vim2vscode != 1
     nmap <silent> <leader>occ <Plug>vim2vscodeCurrent
     nmap <silent> <leader>oc <Plug>vim2vscodeAll
-endif
-
-if !exists(g:vim2vscode_no_defaults)
-    let g:loaded_vim2vscode = 0
 endif
 
 function! s:OpenCurrentBufferInCode()
