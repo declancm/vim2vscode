@@ -42,13 +42,13 @@ First disable the default mappings:
 let g:vim2vscode_no_defaults = 1
 ```
 
-- Open all active buffers in vscode:
+- Open all active buffers in code:
 
   ```vim
   nnoremap <leader>oc :Code<CR>
   ```
 
-- Open current buffer in vscode:
+- Open current buffer in code:
 
   ```vim
   nnoremap <leader>occ :CodeCurrent<CR>
