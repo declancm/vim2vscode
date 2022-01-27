@@ -5,8 +5,11 @@
 command! Code :call <SID>OpenBuffersInCode()
 
 " make it so if a variable g:vim2vscode_defaults then these defaults aren't set.
-nnoremap <unique> <silent> <leader>occ :call <SID>OpenInCode()<CR>
-nnoremap <unique> <silent> <leader>oc :call <SID>OpenBuffersInCode()<CR>
+nnoremap <Plug>vim2vscodeCurrent :call <SID>OpenInCode()<CR>
+nnoremap <Plug>vim2vscodeAll :call <SID>OpenBuffersInCode()<CR>
+
+nmap <silent> <leader>occ <Plug>vim2vscodeCurrent
+nmap <silent> <leader>oc <Plug>vim2vscodeAll
 
 function! s:OpenInCode()
 
