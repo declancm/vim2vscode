@@ -1,7 +1,7 @@
 # vim2vscode
 
-Open all active buffers (files) in vs code for when you need that visual studio\
-debugging power.
+Open all active buffers (files) in vim into vscode for when you need that visual\
+studio debugging power.
 
 ## Installation
 
