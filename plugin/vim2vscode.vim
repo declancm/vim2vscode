@@ -1,11 +1,6 @@
 command! Code :call <SID>OpenBuffersInCode()
 
-" nnoremap <silent> <Plug>OpenCurrentBuffer :call <SID>OpenInCode()<CR>
-" nnoremap <silent> <Plug>OpenAllBuffers :call <SID>OpenBuffersInCode()<CR>
-
-" nmap <leader>occ <Plug>OpenCurrentBuffer
-" nmap <leader>oc <Plug>OpenAllBuffers
-
+" make it so if a variable g:vim2vscode_defaults then these defaults aren't set.
 nnoremap <unique> <silent> <leader>occ :call <SID>OpenInCode()<CR>
 nnoremap <unique> <silent> <leader>oc :call <SID>OpenBuffersInCode()<CR>
 
