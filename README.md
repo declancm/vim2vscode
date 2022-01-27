@@ -42,17 +42,14 @@ First disable the default mappings:
 let g:vim2vscode_no_defaults = 1
 ```
 
-Then add your keymaps.
+Then add your keymaps:
 
-- To open all active buffers in code:
+```vim
+" To open all active buffers in code:
+nnoremap <leader>oc :Code<CR>
 
-  ```vim
-  nnoremap <leader>oc :Code<CR>
-  ```
+" To open the current buffer in code:
+nnoremap <leader>occ :CodeCurrent<CR>
+```
 
-- To open the current buffer in code:
-
-  ```vim
-  nnoremap <leader>occ :CodeCurrent<CR>
-  ```
-
+Source your config file and restart vim for the changes to take effect.
