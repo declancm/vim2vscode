@@ -3,6 +3,9 @@
 Open all active buffers (files) in vim into vscode for when you need that visual\
 studio debugging power.
 
+The plugin will also transfer your working directory and even your current cursor\
+location in your current buffer from vim into vscode.
+
 ## Installation
 
 Use a vim plugin. Here are some examples:
@@ -22,10 +25,12 @@ use 'declancm/vim2vscode'
 ## Usage
 
 Enter the command `:Code` to open all buffers (files) open on the screen in\
-code. The current file will be opened in code at the same cursor position.
+code. The code instance will be loaded with the current working directory and\
+the current file will be opened at the same cursor position.
 
-Enter the command `:CodeCurrent` to open the current buffer in code. The file\
-will be opened in code at the same cursor position.
+Enter the command `:CodeCurrent` to open the current buffer in code. The code\
+instance will be loaded with the current working directory and the file will be\
+opened at the same cursor position.
 
 ### Default Mappings
 

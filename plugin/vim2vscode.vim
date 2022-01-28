@@ -1,6 +1,6 @@
 " vim2vscode - Open files in vscode
 " Maintainer: Declan Mullen https://github.com/declancm
-" Version: 1.0
+" Version: 1.1
 
 " if exists('g:loaded_vim2vscode')
 "   finish
