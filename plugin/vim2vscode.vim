@@ -35,7 +35,7 @@ function! s:OpenCurrentBufferInCode()
     echom "Opening '" . l:fullPath . "' in vscode..."
 
     " load the current directory into vscode
-    silent execute("!code --new " . l:currentDirectory)
+    silent execute("!code " . l:currentDirectory)
 
     " open file in vscode at current cursor position
     let l:cursorPos = getpos('.')
