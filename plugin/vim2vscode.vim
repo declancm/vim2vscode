@@ -32,13 +32,15 @@ function! s:OpenCurrentBufferInCode()
     let l:file = bufname()
     let l:fullPath = fnamemodify(l:file, ":p")
 
+    " get cursor position
+    let l:cursorPos = getpos('.')
+
     echom "Opening '" . l:fullPath . "' in vscode..."
 
     " load the current directory into vscode
     silent execute("!code -n " . l:currentDirectory)
 
     " open file in vscode at current cursor position
-    let l:cursorPos = getpos('.')
     silent execute("!code --goto " . l:fullPath . ":" . l:cursorPos[1] . ":" . l:cursorPos[2])
 
 endfunction
@@ -51,6 +53,9 @@ function! s:OpenAllBuffersInCode()
     " get name of current buffer
     let l:currentFile = bufname()
     let l:currentFullPath = fnamemodify(l:currentFile, ":p")
+
+    " get cursor position
+    let l:cursorPos = getpos('.')
 
     echom "Opening your active buffers in vscode..."
 
@@ -77,7 +82,6 @@ function! s:OpenAllBuffersInCode()
     endwhile
 
     " open the current file at current cursor position
-    let l:cursorPos = getpos('.')
     silent execute("!code --goto " . l:currentFullPath . ":" . l:cursorPos[1] . ":" . l:cursorPos[2])
 
 endfunction
