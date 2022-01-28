@@ -38,8 +38,9 @@ function! s:OpenCurrentBufferInCode()
     echom "Opening '" . l:fullPath . "' in vscode..."
 
     " load the current directory into vscode
-    silent execute("!code -n")
-    silent execute("!code --add " . l:currentDirectory)
+    " silent execute("!code -n")
+    " silent execute("!code --add " . l:currentDirectory)
+    silent execute("!code -n " . l:currentDirectory)
 
     " open file in vscode at current cursor position
     silent execute("!code -g " . l:fullPath . ":" . l:cursorPos[1] . ":" . l:cursorPos[2])
@@ -61,8 +62,9 @@ function! s:OpenAllBuffersInCode()
     echom "Opening your active buffers in vscode..."
 
     " load the current directory into vscode
-    silent execute("!code -n")
-    silent execute("!code --add " . l:currentDirectory)
+    " silent execute("!code -n")
+    " silent execute("!code --add " . l:currentDirectory)
+    silent execute("!code -n " . l:currentDirectory)
 
     let l:activeBuffers = execute("buffers(a)")
     let l:lenActiveBuffers = len(l:activeBuffers)
