@@ -35,11 +35,11 @@ function! s:OpenCurrentBufferInCode()
     echom "Opening '" . l:fullPath . "' in vscode..."
 
     " load the current directory into vscode
-    silent execute("!code " . l:currentDirectory)
+    silent execute("!code --new " . l:currentDirectory)
 
     " open file in vscode at current cursor position
     let l:cursorPos = getpos('.')
-    silent execute("!code --goto " . l:fullPath . ":" . l:cursorPos[1] . ":" . l:cursorPos[2])
+    silent execute("!code -r --goto " . l:fullPath . ":" . l:cursorPos[1] . ":" . l:cursorPos[2])
 
 endfunction
 
@@ -78,6 +78,6 @@ function! s:OpenAllBuffersInCode()
 
     " open the current file at current cursor position
     let l:cursorPos = getpos('.')
-    silent execute("!code --goto " . l:currentFullPath . ":" . l:cursorPos[1] . ":" . l:cursorPos[2])
+    silent execute("!code -r --goto " . l:currentFullPath . ":" . l:cursorPos[1] . ":" . l:cursorPos[2])
 
 endfunction
