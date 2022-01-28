@@ -25,25 +25,37 @@ endif
 
 function! s:OpenCurrentBufferInCode()
 
+    " get the current working directory
+    let l:currentDirectory = getcwd()
+
     " get name of current buffer
     let l:file = bufname()
-    let l:fullpath = fnamemodify(l:file, ":p")
+    let l:fullPath = fnamemodify(l:file, ":p")
 
-    echom "Opening '" . l:fullpath . "' in vscode..."
+    echom "Opening '" . l:fullPath . "' in vscode..."
+
+    " load the current directory into vscode
+    silent execute("!code --add " . l:currentDirectory)
 
     " open file in vscode at current cursor position
-    let l:cursorpos = getpos('.')
-    silent execute("!code --goto " . l:fullpath . ":" . l:cursorpos[1] . ":" . l:cursorpos[2])
+    let l:cursorPos = getpos('.')
+    silent execute("!code --goto " . l:fullPath . ":" . l:cursorPos[1] . ":" . l:cursorPos[2])
 
 endfunction
 
 function! s:OpenAllBuffersInCode()
+
+    " get the current working directory
+    let l:currentDirectory = getcwd()
 
     " get name of current buffer
     let l:currentFile = bufname()
     let l:currentFullPath = fnamemodify(l:currentFile, ":p")
 
     echom "Opening your active buffers in vscode..."
+
+    " load the current directory into vscode
+    silent execute("!code --add " . l:currentDirectory)
 
     let l:activeBuffers = execute("buffers(a)")
     let l:lenActiveBuffers = len(l:activeBuffers)
@@ -52,20 +64,20 @@ function! s:OpenAllBuffersInCode()
     while i < l:lenActiveBuffers
         if "\n" == l:activeBuffers[i]
             let l:number += 1
-            let l:bufnr = str2nr(l:activeBuffers[i+1:i+4])
-            let l:bufname = bufname(l:bufnr)
-            let l:fullpath = fnamemodify(l:bufname, ":p")
+            let l:bufferNumber = str2nr(l:activeBuffers[i+1:i+4])
+            let l:bufferName = bufname(l:bufferNumber)
+            let l:fullPath = fnamemodify(l:bufferName, ":p")
 
             " open all buffers but the current
-            if l:fullpath != l:currentFullPath
-                silent execute("!code -r " . l:fullpath)
+            if l:fullPath != l:currentFullPath
+                silent execute("!code -r " . l:fullPath)
             endif
         endif
         let l:i += 1
     endwhile
 
     " open the current file at current cursor position
-    let l:cursorpos = getpos('.')
-    silent execute("!code --goto " . l:currentFullPath . ":" . l:cursorpos[1] . ":" . l:cursorpos[2])
+    let l:cursorPos = getpos('.')
+    silent execute("!code --goto " . l:currentFullPath . ":" . l:cursorPos[1] . ":" . l:cursorPos[2])
 
 endfunction
