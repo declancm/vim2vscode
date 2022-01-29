@@ -25,6 +25,9 @@ endif
 
 function! s:OpenCurrentBufferInCode()
 
+    " save all buffers
+    silent execute("wa")
+
     " get the current working directory
     let l:currentDirectory = getcwd()
 
@@ -44,10 +47,16 @@ function! s:OpenCurrentBufferInCode()
 
     " open file in vscode at current cursor position
     silent execute("!code -g " . l:fullPath . ":" . l:cursorPos[1] . ":" . l:cursorPos[2])
+    " needs to be run twice to fix a bug with vscode not opening to cursor
+    " position sometimes
+    silent execute("!code -g " . l:fullPath . ":" . l:cursorPos[1] . ":" . l:cursorPos[2])
 
 endfunction
 
 function! s:OpenAllBuffersInCode()
+
+    " save all buffers
+    silent execute("wa")
 
     " get the current working directory
     let l:currentDirectory = getcwd()
@@ -69,10 +78,8 @@ function! s:OpenAllBuffersInCode()
     let l:activeBuffers = execute("buffers(a)")
     let l:lenActiveBuffers = len(l:activeBuffers)
     let l:i = 0
-    let l:number = 0
     while i < l:lenActiveBuffers
         if "\n" == l:activeBuffers[i]
-            let l:number += 1
             let l:bufferNumber = str2nr(l:activeBuffers[i+1:i+4])
             let l:bufferName = bufname(l:bufferNumber)
             let l:fullPath = fnamemodify(l:bufferName, ":p")
@@ -86,6 +93,9 @@ function! s:OpenAllBuffersInCode()
     endwhile
 
     " open the current file at current cursor position
+    silent execute("!code -g " . l:currentFullPath . ":" . l:cursorPos[1] . ":" . l:cursorPos[2])
+    " needs to be run twice to fix a bug with vscode not opening to cursor
+    " position sometimes
     silent execute("!code -g " . l:currentFullPath . ":" . l:cursorPos[1] . ":" . l:cursorPos[2])
 
 endfunction
