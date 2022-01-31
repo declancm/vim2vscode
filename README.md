@@ -1,6 +1,6 @@
 # vim2vscode
 
-Open all active buffers (files) in vim into vscode for when you need that visual\
+Open all active vim buffers (files) in vscode for when you need that visual\
 studio debugging power.
 
 The plugin will also transfer your working directory and even your current cursor\
