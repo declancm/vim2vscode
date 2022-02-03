@@ -10,6 +10,8 @@ location in your current buffer from vim into vscode.
 
 <https://user-images.githubusercontent.com/90937622/152325955-17417cef-12b7-4a41-ae3b-1202e622aa6e.mp4>
 
+The three files which were open on screen were opened within vscode, and the working directory in vscode changed to match vim.
+
 ## Installation
 
 Use a vim plugin. Here are some examples:
