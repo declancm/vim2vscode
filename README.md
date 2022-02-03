@@ -6,6 +6,10 @@ studio debugging power.
 The plugin will also transfer your working directory and even your current cursor\
 location in your current buffer from vim into vscode.
 
+## Demo Video
+
+<https://user-images.githubusercontent.com/90937622/152325955-17417cef-12b7-4a41-ae3b-1202e622aa6e.mp4>
+
 ## Installation
 
 Use a vim plugin. Here are some examples:
