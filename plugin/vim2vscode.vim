@@ -66,7 +66,7 @@ function! s:OpenAllBuffersInCode()
     let l:currentFullPath = fnamemodify(l:currentFile, ":p")
 
     " get cursor position
-    let l:cursorPos = getpos('.')
+    let l:currentCursorPos = getpos('.')
 
     echom "Opening your active buffers in vscode..."
 
@@ -82,20 +82,23 @@ function! s:OpenAllBuffersInCode()
         if "\n" == l:activeBuffers[i]
             let l:bufferNumber = str2nr(l:activeBuffers[i+1:i+4])
             let l:bufferName = bufname(l:bufferNumber)
+            let l:bufferDictionary = getbufinfo(l:bufferName)
+            let l:lineNumber = (l:bufferDictionary[0]).lnum
             let l:fullPath = fnamemodify(l:bufferName, ":p")
 
             " open all buffers but the current
             if l:fullPath != l:currentFullPath
-                silent execute("!code " . l:fullPath)
+                " silent execute("!code " . l:fullPath)
+                silent execute("!code -g " . l:fullPath . ":" . l:lineNumber)
             endif
         endif
         let l:i += 1
     endwhile
 
     " open the current file at current cursor position
-    silent execute("!code -g " . l:currentFullPath . ":" . l:cursorPos[1] . ":" . l:cursorPos[2])
+    silent execute("!code -g " . l:currentFullPath . ":" . l:currentCursorPos[1] . ":" . l:cursorPos[2])
     " needs to be run twice to fix a bug with vscode not opening to cursor
     " position sometimes
-    silent execute("!code -g " . l:currentFullPath . ":" . l:cursorPos[1] . ":" . l:cursorPos[2])
+    silent execute("!code -g " . l:currentFullPath . ":" . l:currentCursorPos[1] . ":" . l:cursorPos[2])
 
 endfunction
