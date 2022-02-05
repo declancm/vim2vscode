@@ -10,7 +10,8 @@ location in your current buffer from vim into vscode.
 
 <https://user-images.githubusercontent.com/90937622/152325955-17417cef-12b7-4a41-ae3b-1202e622aa6e.mp4>
 
-The three files which were open on screen were opened within vscode, and the working directory in vscode changed to match vim.
+The three files which were open on screen were opened within vscode, and the\
+working directory in vscode changed to match vim.
 
 ## Installation
 
@@ -34,9 +35,8 @@ Enter the command `:Code` to open all buffers (files) open on the screen in\
 code. The code instance will be loaded with the current working directory and\
 the current file will be opened at the same cursor position.
 
-Enter the command `:CodeCurrent` to open the current buffer in code. The code\
-instance will be loaded with the current working directory and the file will be\
-opened at the same cursor position.
+Enter the command `:CodeCurrent` to open only the current buffer in code. The code\
+instance will be loaded without the current directory to stop unnecessary loading.
 
 ### Default Mappings
 
