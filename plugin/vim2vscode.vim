@@ -90,6 +90,7 @@ function! s:OpenAllBuffersInCode()
             if l:fullPath != l:currentFullPath
                 " silent execute("!code " . l:fullPath)
                 silent execute("!code -g " . l:fullPath . ":" . l:lineNumber)
+                silent execute("sleep")
             endif
         endif
         let l:i += 1
