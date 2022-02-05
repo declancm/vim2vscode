@@ -38,16 +38,13 @@ function! s:OpenCurrentBufferInCode()
     " get cursor position
     let l:cursorPos = getpos('.')
 
-    echom "Opening '" . l:fullPath . "' in vscode..."
+    echom "Opening '" . l:file . "' in vscode..."
 
     " load the current directory into vscode
     " silent execute("!code -n " . l:currentDirectory)
 
     " open file in vscode at current cursor position
     silent execute("!code -n -g " . l:fullPath . ":" . l:cursorPos[1] . ":" . l:cursorPos[2])
-    " needs to be run twice to fix a bug with vscode not opening to cursor
-    " position sometimes
-    " silent execute("!code -g " . l:fullPath . ":" . l:cursorPos[1] . ":" . l:cursorPos[2])
 
 endfunction
 
