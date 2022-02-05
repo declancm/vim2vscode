@@ -29,7 +29,7 @@ function! s:OpenCurrentBufferInCode()
     silent execute("wa")
 
     " get the current working directory
-    let l:currentDirectory = getcwd()
+    " let l:currentDirectory = getcwd()
 
     " get name of current buffer
     let l:file = bufname()
@@ -41,9 +41,7 @@ function! s:OpenCurrentBufferInCode()
     echom "Opening '" . l:fullPath . "' in vscode..."
 
     " load the current directory into vscode
-    " silent execute("!code -n")
-    " silent execute("!code --add " . l:currentDirectory)
-    silent execute("!code -n " . l:currentDirectory)
+    " silent execute("!code -n " . l:currentDirectory)
 
     " open file in vscode at current cursor position
     silent execute("!code -g " . l:fullPath . ":" . l:cursorPos[1] . ":" . l:cursorPos[2])
@@ -91,7 +89,9 @@ function! s:OpenAllBuffersInCode()
             if l:fullPath != l:currentFullPath
                 " silent execute("!code " . l:fullPath)
                 silent execute("!code -g " . l:fullPath . ":" . l:lineNumber)
-                silent execute("sleep")
+                " needs to be run twice to fix a bug with vscode not opening to cursor
+                " position sometimes
+                silent execute("!code -g " . l:currentFullPath . ":" . l:currentCursorPos[1] . ":" . l:currentCursorPos[2])
             endif
         endif
         let l:i += 1
