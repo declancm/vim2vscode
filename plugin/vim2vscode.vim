@@ -84,7 +84,7 @@ function! s:OpenAllBuffersInCode()
             let l:bufferName = bufname(l:bufferNumber)
             let l:bufferDictionary = getbufinfo(l:bufferName)
             let l:lineNumber = (l:bufferDictionary[0]).lnum
-            echom "the line number is: " l:lineNumber
+            echom "the line number is: " . l:lineNumber
             let l:fullPath = fnamemodify(l:bufferName, ":p")
 
             " open all buffers but the current
