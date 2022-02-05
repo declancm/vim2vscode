@@ -90,15 +90,16 @@ function! s:OpenAllBuffersInCode()
             if l:fullPath != l:currentFullPath
                 " silent execute("!code " . l:fullPath)
                 silent execute("!code -g " . l:fullPath . ":" . l:lineNumber)
+                silent execute("!code -g " . l:fullPath . ":" . l:lineNumber)
             endif
         endif
         let l:i += 1
     endwhile
 
     " open the current file at current cursor position
-    silent execute("!code -g " . l:currentFullPath . ":" . l:currentCursorPos[1] . ":" . l:cursorPos[2])
+    silent execute("!code -g " . l:currentFullPath . ":" . l:currentCursorPos[1] . ":" . l:currentCursorPos[2])
     " needs to be run twice to fix a bug with vscode not opening to cursor
     " position sometimes
-    silent execute("!code -g " . l:currentFullPath . ":" . l:currentCursorPos[1] . ":" . l:cursorPos[2])
+    silent execute("!code -g " . l:currentFullPath . ":" . l:currentCursorPos[1] . ":" . l:currentCursorPos[2])
 
 endfunction
