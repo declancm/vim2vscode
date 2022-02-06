@@ -25,7 +25,7 @@ endif
 
 function! s:OpenCurrentBufferInCode()
 
-    " save all buffers
+    " save current buffer
     silent execute("w")
 
     " get the current working directory
@@ -51,9 +51,7 @@ endfunction
 function! s:OpenAllBuffersInCode()
 
     " save all buffers
-    " silent execute("wa")
-    " silent execute ("bufdo if &modifiable | :w | endif")
-    silent execute("bufdo w")
+    silent execute("wa")
 
     " get the current working directory
     let l:currentDirectory = getcwd()
