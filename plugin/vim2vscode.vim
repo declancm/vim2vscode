@@ -26,7 +26,7 @@ endif
 function! s:OpenCurrentBufferInCode()
 
     " save all buffers
-    silent execute("wa")
+    silent execute("w")
 
     " get the current working directory
     " let l:currentDirectory = getcwd()
@@ -44,7 +44,7 @@ function! s:OpenCurrentBufferInCode()
     " silent execute("!code -n " . l:currentDirectory)
 
     " open file in vscode at current cursor position
-    silent execute("!code -n -g " . l:fullPath . ":" . l:cursorPos[1] . ":" . l:cursorPos[2])
+    silent execute("!code -g " . l:fullPath . ":" . l:cursorPos[1] . ":" . l:cursorPos[2])
 
 endfunction
 
