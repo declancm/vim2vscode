@@ -85,9 +85,6 @@ function! s:OpenAllBuffersInCode()
             if l:fullPath != l:currentFullPath
                 " silent execute("!code " . l:fullPath)
                 silent execute("!code -g " . l:fullPath . ":" . l:lineNumber)
-                " needs to be run twice to fix a bug with vscode not opening to cursor
-                " position sometimes
-                silent execute("!code -g " . l:currentFullPath . ":" . l:currentCursorPos[1] . ":" . l:currentCursorPos[2])
             endif
         endif
         let l:i += 1
