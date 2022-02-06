@@ -79,7 +79,7 @@ function! s:OpenAllBuffersInCode()
             let l:bufferName = bufname(l:bufferNumber)
             let l:fullPath = fnamemodify(l:bufferName, ":p")
 
-            call writefile(getbufline(l:bufferName, 1, $), l:fullPath)
+            " call writefile(getbufline(l:bufferName, 1, $), l:fullPath)
 
             let l:bufferDictionary = getbufinfo(l:bufferName)
             let l:lineNumber = (l:bufferDictionary[0]).lnum
