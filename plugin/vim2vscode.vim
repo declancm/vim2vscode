@@ -25,8 +25,8 @@ endif
 
 function! s:OpenCurrentBufferInCode()
 
-    " save all buffers
-    silent execute("wa")
+    " save current buffer
+    silent execute("w")
 
     " get the current working directory
     " let l:currentDirectory = getcwd()
