@@ -15,18 +15,12 @@ working directory in vscode changed to match vim.
 
 ## Installation
 
-Use a vim plugin. Here are some examples:
+Use your favorite plugin manager.
 
 ### Vim-Plug
 
 ```vim
 Plug 'declancm/vim2vscode'
-```
-
-### Packer
-
-```vim
-use 'declancm/vim2vscode'
 ```
 
 ## Usage
@@ -47,20 +41,13 @@ instance will be loaded without the current directory to stop unnecessary loadin
 
 ### Custom Mappings
 
-First disable the default mappings:
-
 ```vim
+" Disabling default keymaps:
 let g:vim2vscode_no_defaults = 1
+
+" Open all active buffers in code:
+nnoremap <leader>oc <Cmd>Code<CR>
+
+" Open the current buffer in code:
+nnoremap <leader>occ <Cmd>CodeCurrent<CR>
 ```
-
-Then add your keymaps:
-
-```vim
-" To open all active buffers in code:
-nnoremap <leader>oc :Code<CR>
-
-" To open the current buffer in code:
-nnoremap <leader>occ :CodeCurrent<CR>
-```
-
-Source your config file and restart vim for the changes to take effect.
